@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 图片的轮播
  *
- * @author chenmeng created by 2016/11/08
+ * @author Romantic created by 2016/11/08
  */
 public class PageFlipper extends ViewPager {
     private List<View> views;
@@ -109,11 +109,11 @@ public class PageFlipper extends ViewPager {
             switch (state) {
                 case SCROLL_STATE_IDLE: // 闲置
                     if (!handler.hasMessages(START_FLIPPING) && isPlay)
-                        start();//开始播放
+                        start();
                     break;
                 case SCROLL_STATE_DRAGGING: // 拖动中
                     if (isPlay)
-                        stop();//取消播放
+                        stop();
                     break;
                 case SCROLL_STATE_SETTLING: // 拖动结束
                     break;
@@ -150,8 +150,8 @@ public class PageFlipper extends ViewPager {
 
     private void init() {
         setOffscreenPageLimit(1); // 最大页面缓存数量
-        setAdapter(adapter); // 适配器
-        super.addOnPageChangeListener(listener); // 监听器
+        setAdapter(adapter);
+        super.addOnPageChangeListener(listener);
     }
 
     /**
@@ -180,7 +180,7 @@ public class PageFlipper extends ViewPager {
     public void setViews(int[] ids) {
         this.views = new ArrayList<View>();
         int pos = 0;
-        for (int i = 0; i < ids.length + 2; i++) { // 头部新增一个尾页，尾部新增一个首页
+        for (int i = 0; i < ids.length + 2; i++) {
             ImageView iv = new ImageView(getContext());
             pos = i == 0 ? ids.length - 1 : (i > ids.length ? 0 : i - 1);
             iv.setImageResource(ids[pos]);
@@ -196,7 +196,7 @@ public class PageFlipper extends ViewPager {
             });
             this.views.add(iv);
         }
-        setCurrentItem(1); // 首页
+        setCurrentItem(1);
         this.adapter.notifyDataSetChanged();
     }
 
@@ -208,7 +208,7 @@ public class PageFlipper extends ViewPager {
     public void setViews(String[] ids) {
         this.views = new ArrayList<View>();
         int pos = 0;
-        for (int i = 0; i < ids.length + 2; i++) { // 头部新增一个尾页，尾部新增一个首页
+        for (int i = 0; i < ids.length + 2; i++) {
             ImageView iv = new ImageView(getContext());
             pos = i == 0 ? ids.length - 1 : (i > ids.length ? 0 : i - 1);
             x.image().bind(iv,ids[pos]);
@@ -223,7 +223,7 @@ public class PageFlipper extends ViewPager {
             });
             this.views.add(iv);
         }
-        setCurrentItem(1); // 首页
+        setCurrentItem(1);
         this.adapter.notifyDataSetChanged();
     }
 
