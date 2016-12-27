@@ -11,7 +11,7 @@
     public void setViews(int[] ids) {
         this.views = new ArrayList<View>();
         int pos = 0;
-        for (int i = 0; i < ids.length + 2; i++) { // 头部新增一个尾页，尾部新增一个首页
+        for (int i = 0; i < ids.length + 2; i++) {
             ImageView iv = new ImageView(getContext());
             pos = i == 0 ? ids.length - 1 : (i > ids.length ? 0 : i - 1);
             iv.setImageResource(ids[pos]);
@@ -39,7 +39,7 @@
     public void setViews(String[] ids) {
         this.views = new ArrayList<View>();
         int pos = 0;
-        for (int i = 0; i < ids.length + 2; i++) { // 头部新增一个尾页，尾部新增一个首页
+        for (int i = 0; i < ids.length + 2; i++) { 
             ImageView iv = new ImageView(getContext());
             pos = i == 0 ? ids.length - 1 : (i > ids.length ? 0 : i - 1);
             x.image().bind(iv,ids[pos]);
